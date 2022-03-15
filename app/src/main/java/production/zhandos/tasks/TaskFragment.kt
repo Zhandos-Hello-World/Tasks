@@ -31,6 +31,18 @@ class TaskFragment: Fragment() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
+        val adapter = TaskItemAdapter()
+        binding.tasksList.adapter = adapter
+        viewModel.tasks.observe(viewLifecycleOwner) {
+            it?.let {
+                adapter.data = it
+            }
+        }
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

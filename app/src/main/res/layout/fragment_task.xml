@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -30,16 +30,15 @@
             android:layout_gravity="center"
             android:onClick="@{() -> viewModel.addTask()}"
             />
-        <ScrollView
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasks_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/tasks"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@{viewModel.taskString}"
-                />
-        </ScrollView>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="top"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
     </LinearLayout>
 
 </layout>
