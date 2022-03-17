@@ -9,10 +9,10 @@ interface TaskDao {
     suspend fun insert(task: Task)
 
     @Update
-    fun update(task: Task)
+    suspend fun update(task: Task)
 
     @Delete
-    fun delete(task: Task)
+    suspend fun delete(task: Task)
 
     @Query("SELECT * FROM task_table WHERE taskId=:taskId")
     fun getById(taskId: Int): LiveData<Task>
