@@ -11,7 +11,7 @@ abstract class TaskDataBase: RoomDatabase() {
 
     companion object {
         @Volatile
-        var INSTANCE: TaskDataBase? = null
+        private var INSTANCE: TaskDataBase? = null
 
         fun getInstance(context: Context): TaskDataBase {
             synchronized(this) {
